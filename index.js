@@ -1,15 +1,15 @@
 function top_3_words(text) {
-    const words = text.match(/[A-Za-z]+('[A-Za-z]+)*/gi) || [];
-    const wordCount = {};
+    const words = text.match(/[A-Za-z]+('[A-Za-z]+)*/gi) || [];  // Find words in the text using regex
+    const wordCount = {};  // Object to store word counts
 
     words.forEach(word => {
         const lowercaseWord = word.toLowerCase();
-        wordCount[lowercaseWord] = (wordCount[lowercaseWord] || 0) + 1;
+        wordCount[lowercaseWord] = (wordCount[lowercaseWord] || 0) + 1; // Count occurrences of each word
     });
 
-    const sortedWords = Object.keys(wordCount).sort((a, b) => wordCount[b] - wordCount[a]);
+    const sortedWords = Object.keys(wordCount).sort((a, b) => wordCount[b] - wordCount[a]); // Sort words based on count
 
-    return sortedWords.slice(0, 3);
+    return sortedWords.slice(0, 3); // Return the top 3 words
 }
 
 // Example usages
